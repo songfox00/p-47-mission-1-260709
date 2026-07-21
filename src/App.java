@@ -62,16 +62,9 @@ public class App {
     }
 
     private void actionDelete(String cmd){
-        //삭제?id=1에서 1만 가져오는 법
         int id = Integer.parseInt(cmd.substring(cmd.indexOf("=")+1).trim());
-        int targetIdx=-1;
 
-
-        for(int i=0;i<wiseSayings.size();i++){
-            WiseSaying w1=wiseSayings.get(i);
-            if(w1.getId() == id)
-                targetIdx=i;
-        }
+        int targetIdx = findIndexById(id);
 
         if(targetIdx==-1) {
             System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
@@ -83,15 +76,20 @@ public class App {
         System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
     }
 
-    private void actionModify(String cmd) {
-        int id = Integer.parseInt(cmd.substring(cmd.indexOf("=")+1).trim());
-        int targetIdx=-1;
-
+    public int findIndexById(int id){
         for(int i=0;i<wiseSayings.size();i++){
             WiseSaying w1=wiseSayings.get(i);
             if(w1.getId() == id)
-                targetIdx=i;
+                return i;
         }
+
+        return -1;
+    }
+
+    private void actionModify(String cmd) {
+        int id = Integer.parseInt(cmd.substring(cmd.indexOf("=")+1).trim());
+
+        int targetIdx = findIndexById(id);
 
         if(targetIdx==-1) {
             System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
