@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -24,12 +25,14 @@ public class WiseSayingRepository {
     }
 
     public WiseSaying save(WiseSaying wiseSaying){
-
         if(wiseSaying.isNew()) {
             lastId++;
             wiseSaying.setId(lastId);
+            wiseSaying.setCreatedDate(LocalDateTime.now());
             wiseSayings.add(wiseSaying);
         }
+
+        wiseSaying.setModifiedDate(LocalDateTime.now());
 
         return wiseSaying;
     }

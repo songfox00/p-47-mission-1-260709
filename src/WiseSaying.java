@@ -1,7 +1,11 @@
+import java.time.LocalDateTime;
+
 public class WiseSaying {
     private int id;
     private String author;
     private String content;
+    private LocalDateTime createdDate;
+    private LocalDateTime modifiedDate;
 
     public WiseSaying(String author, String content) {
         this.author = author;
@@ -24,6 +28,14 @@ public class WiseSaying {
         return content;
     }
 
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public LocalDateTime getModifiedDate() {
+        return modifiedDate;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -34,6 +46,14 @@ public class WiseSaying {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public void setModifiedDate(LocalDateTime modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 }
 

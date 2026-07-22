@@ -14,13 +14,15 @@ public class WiseSayingController {
 
         List<WiseSaying> list =wiseSayingService.findAllIdDesc();
 
-        System.out.println("번호 / 작가 / 명언");
+        System.out.println("번호 / 작가 / 명언 / 작성일 / 마지막 수정일");
         System.out.println("----------------------");
 
         for(WiseSaying target:list){
-            System.out.println("%d / %s / %s".formatted(target.getId(),
+            System.out.println("%d / %s / %s / %s / %s".formatted(target.getId(),
                     target.getAuthor(),
-                    target.getContent()));
+                    target.getContent(),
+                    target.getCreatedDate(),
+                    target.getModifiedDate()));
         }
     }
 
