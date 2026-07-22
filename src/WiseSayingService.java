@@ -9,8 +9,8 @@ public class WiseSayingService {
     }
 
     public WiseSaying write(String content, String author){
-        WiseSaying wiseSaying=new WiseSaying(author, content);
-        WiseSaying savedWiseSaying = wiseSayingRepository.save(wiseSaying);
+        WiseSaying w1=new WiseSaying(author, content);
+        WiseSaying savedWiseSaying = wiseSayingRepository.save(w1);
 
         return savedWiseSaying;
     }
@@ -18,6 +18,8 @@ public class WiseSayingService {
     public void modify(WiseSaying w1, String content, String author){
         w1.setContent(content);
         w1.setAuthor(author);
+
+        wiseSayingRepository.save(w1);
     }
 
     public boolean delete(int id){

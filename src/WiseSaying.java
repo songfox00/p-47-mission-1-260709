@@ -8,6 +8,10 @@ public class WiseSaying {
         this.content = content;
     }
 
+    public boolean isNew() {
+        return id == 0;
+    }
+
     public int getId() {
         return id;
     }

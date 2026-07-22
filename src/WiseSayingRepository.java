@@ -24,9 +24,12 @@ public class WiseSayingRepository {
     }
 
     public WiseSaying save(WiseSaying wiseSaying){
-        lastId++;
-        wiseSaying.setId(lastId);
-        wiseSayings.add(wiseSaying);
+
+        if(wiseSaying.isNew()) {
+            lastId++;
+            wiseSaying.setId(lastId);
+            wiseSayings.add(wiseSaying);
+        }
 
         return wiseSaying;
     }
